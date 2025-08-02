@@ -5,7 +5,7 @@ description = "Default template for PDM package"
 authors = [
     {name = "Salim Kachemela", email = "sakachemela@gmail.com"},
 ]
-dependencies = ["django>=5.2.4", "psycopg>=3.2.9", "django-extensions>=4.1"]
+dependencies = ["django>=5.2.4", "psycopg>=3.2.9", "django-extensions>=4.1", "python-dotenv>=1.1.1"]
 requires-python = "==3.12.*"
 readme = "README.md"
 license = {text = "MIT"}
@@ -13,3 +13,8 @@ license = {text = "MIT"}
 
 [tool.pdm]
 distribution = false
+
+[dependency-groups]
+dev = [
+    "ipython>=9.4.0",
+]
