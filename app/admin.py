@@ -1,3 +1,13 @@
 from django.contrib import admin
 
-# Register your models here.
+from app.models import TechCategory, Technology
+
+
+@admin.register(Technology)
+class TechnologyAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(TechCategory)
+class TechCategoryAdmin(admin.ModelAdmin):
+    pass
