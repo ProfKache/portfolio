@@ -1,7 +1,9 @@
 from django.db import models
 
+from helpers.base_model import BaseModel
 
-class TechCategory(models.Model):
+
+class TechCategory(BaseModel):
     """
     A model that store information about a tech stack category e.g
     Frontend, Backend, Database etc.
@@ -16,7 +18,7 @@ class TechCategory(models.Model):
         return self.name
 
 
-class Technology(models.Model):
+class Technology(BaseModel):
     """
     A model that store information about a tech stack e.g
     HTML, CSS, JavaScript, Django etc.
@@ -30,3 +32,37 @@ class Technology(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Service(BaseModel):
+    """
+    A model for listing all the Services that I offer.
+    """
+
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.title
+
+
+class Testimonial(BaseModel):
+    """
+    A model for listing all the Testimonials.
+    """
+
+    name = models.CharField(max_length=100)
+    role = models.CharField(max_length=100, blank=True)
+    photo = models.ImageField(upload_to="media/testimonials/photos/", blank=True, null=True)
+    quote = models.TextField()
+
+    class Meta:
+        verbose_name = "Testimonial"
+        verbose_name_plural = "Testimonials"
+
+    def __str__(self):
+        return f"{self.name} ({self.role})"
+
+    def short_message(self):
+        """Return a shortened version of the testimonial message."""
+        return self.quote[:75] + ("..." if len(self.quote) > 75 else "")
