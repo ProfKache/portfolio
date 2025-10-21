@@ -116,65 +116,19 @@
     <!-- End Section Title -->
     <div class="container">
       <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 service-item d-flex"
-             data-aos="fade-up"
-             data-aos-delay="100">
-          <div class="icon flex-shrink-0">
-            <i class="bi bi-briefcase"></i>
+        {% for service in services %}
+          <div class="col-lg-4 col-md-6 service-item d-flex"
+               data-aos="fade-up"
+               data-aos-delay="100">
+            <div class="icon flex-shrink-0">
+              <i class="{{ service.icon }}"></i>
+            </div>
+            <div>
+              <h4 class="title">{{ service.title }}</h4>
+              <p class="description">{{ service.description }}</p>
+            </div>
           </div>
-          <div>
-            <h4 class="title">Lorem Ipsum</h4>
-            <p class="description">
-              Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-            </p>
-            <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- End Service Item -->
-        <div class="col-lg-4 col-md-6 service-item d-flex"
-             data-aos="fade-up"
-             data-aos-delay="200">
-          <div class="icon flex-shrink-0">
-            <i class="bi bi-card-checklist"></i>
-          </div>
-          <div>
-            <h4 class="title">Dolor Sitema</h4>
-            <p class="description">
-              Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata
-            </p>
-            <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- End Service Item -->
-        <div class="col-lg-4 col-md-6 service-item d-flex"
-             data-aos="fade-up"
-             data-aos-delay="300">
-          <div class="icon flex-shrink-0">
-            <i class="bi bi-bar-chart"></i>
-          </div>
-          <div>
-            <h4 class="title">Sed ut perspiciatis</h4>
-            <p class="description">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
-            </p>
-            <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- End Service Item -->
-        <div class="col-lg-4 col-md-6 service-item d-flex"
-             data-aos="fade-up"
-             data-aos-delay="600">
-          <div class="icon flex-shrink-0">
-            <i class="bi bi-calendar4-week"></i>
-          </div>
-          <div>
-            <h4 class="title">Eiusmod Tempor</h4>
-            <p class="description">
-              Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi
-            </p>
-            <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
+        {% endfor %}
         <!-- End Service Item -->
       </div>
     </div>
