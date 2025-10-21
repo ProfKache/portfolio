@@ -25,7 +25,11 @@ class Technology(BaseModel):
     """
 
     name = models.CharField(max_length=100, unique=True)
-    category = models.ForeignKey(TechCategory, on_delete=models.CASCADE, related_name="technologies")
+    category = models.ForeignKey(
+        TechCategory,
+        on_delete=models.CASCADE,
+        related_name="technologies",
+    )
 
     class Meta:
         verbose_name_plural = "Technologies"
@@ -41,6 +45,11 @@ class Service(BaseModel):
 
     title = models.CharField(max_length=100)
     description = models.TextField()
+    icon = models.CharField(max_length=100, blank=True, default="")
+
+    class Meta:
+        verbose_name = "Service"
+        verbose_name_plural = "Services"
 
     def __str__(self):
         return self.title
@@ -53,7 +62,11 @@ class Testimonial(BaseModel):
 
     name = models.CharField(max_length=100)
     role = models.CharField(max_length=100, blank=True)
-    photo = models.ImageField(upload_to="media/testimonials/photos/", blank=True, null=True)
+    photo = models.ImageField(
+        upload_to="uploads/testimonials/photos/",
+        blank=True,
+        null=True,
+    )
     quote = models.TextField()
 
     class Meta:
