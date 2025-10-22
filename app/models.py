@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 from helpers.base_model import BaseModel
 
@@ -87,6 +88,7 @@ class Project(BaseModel):
     """
 
     title = models.CharField(max_length=100)
+    slug = models.SlugField(null=True, blank=True, max_length=100)
     short_form = models.CharField(max_length=11, blank=True, default="")
     description = models.TextField()
     link = models.URLField(blank=True, default="")
@@ -100,6 +102,11 @@ class Project(BaseModel):
     class Meta:
         verbose_name = "Project"
         verbose_name_plural = "Projects"
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         if self.short_form:
