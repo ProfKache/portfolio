@@ -1,5 +1,5 @@
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from app.models import Project, Service, TechCategory, Testimonial
 
@@ -17,3 +17,12 @@ def index(request: HttpRequest) -> HttpResponse:
         "projects": projects,
     }
     return render(request, "index.html", context)
+
+
+def project_details(request: HttpRequest, slug: str) -> HttpResponse:
+    """
+    View for project details
+    """
+    project = get_object_or_404(Project, slug=slug)
+    context = {"project": project}
+    return render(request, "portfolio-details.html", context)
