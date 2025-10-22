@@ -79,3 +79,29 @@ class Testimonial(BaseModel):
     def short_message(self):
         """Return a shortened version of the testimonial message."""
         return self.quote[:75] + ("..." if len(self.quote) > 75 else "")
+
+
+class Project(BaseModel):
+    """
+    A model for listing all the Projects.
+    """
+
+    title = models.CharField(max_length=100)
+    short_form = models.CharField(max_length=11, blank=True, default="")
+    description = models.TextField()
+    link = models.URLField(blank=True, default="")
+    image = models.ImageField(
+        upload_to="uploads/projects/screenshots/",
+        blank=True,
+        default="default.jpg",
+    )
+    technologies = models.TextField(blank=True, default="")
+
+    class Meta:
+        verbose_name = "Project"
+        verbose_name_plural = "Projects"
+
+    def __str__(self):
+        if self.short_form:
+            return f"{self.title} ({self.short_form})"
+        return self.title

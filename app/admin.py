@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from app.models import Service, TechCategory, Technology, Testimonial
+from app.models import Project, Service, TechCategory, Technology, Testimonial
 
 
 class BaseModelAdmin(admin.ModelAdmin):
@@ -75,3 +75,8 @@ class TestimonialAdmin(BaseModelAdmin):
     list_filter = ("is_active",)
     list_editable = ("is_active",)
     search_fields = ("name", "role", "quote")
+
+
+@admin.register(Project)
+class ProjectAdmin(BaseModelAdmin):
+    pass
