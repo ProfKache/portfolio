@@ -79,4 +79,4 @@ class TestimonialAdmin(BaseModelAdmin):
 
 @admin.register(Project)
 class ProjectAdmin(BaseModelAdmin):
-    pass
+    prepopulated_fields = {"slug": ("title",)}
