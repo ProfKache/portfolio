@@ -29,7 +29,7 @@
           <img src="{{ project.image.url }}"
                alt="{{ project.title }}"
                style="width: 100%;
-                      height: 50vh">
+                      height: 45vh">
         </div>
         <div class="col-lg-4">
           <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
@@ -49,7 +49,7 @@
                   <strong>Project URL</strong>: <a href="{{ project.link }}">{{ project.link }}</a>
                 </li>
               {% endif %}
-              {% if technologies %}
+              {% if project.technologies %}
                 <li>
                   <strong>Technologies</strong>: {{ project.technologies }}
                 </li>
