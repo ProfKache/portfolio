@@ -6,7 +6,7 @@
   <!-- Hero Section -->
   <section id="hero" class="hero section dark-background">
     <img src="{% static 'assets/img/macbook-bg.jpg' %}"
-         alt=""
+         alt="Hero Image"
          data-aos="fade-in">
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <h2>
@@ -278,7 +278,9 @@
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email</h3>
-                <p>sakachemela@gmail.com</p>
+                <p>
+                  <a href="mailto:sakachemela@gmail">sakachemela@gmail.com</a>
+                </p>
               </div>
             </div>
           </div>
@@ -300,9 +302,9 @@
           </div>
           <div class="col-md-12">
             <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-              </div>
-              <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
+                                  </div>
+                                  <div class="col-md-12 text-center">
+                        <div class="loading">Loading</div>
             <div class="error-message"></div>
             <div class="sent-message">Your message has been sent. Thank you!</div>
             <button type="submit">Send Message</button>
