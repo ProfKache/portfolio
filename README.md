@@ -1,10 +1,7 @@
 # Portfolio
-This is my own personal website.
 
-
-
-
-
+This is my own personal portfolio website.
 
 ## Implementation
-Developed using Python, Flask, and Foundation Framework.
+
+Developed using Python, Django, and Boostrap Framework.
