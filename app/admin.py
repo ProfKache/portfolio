@@ -79,4 +79,6 @@ class TestimonialAdmin(BaseModelAdmin):
 
 @admin.register(Project)
 class ProjectAdmin(BaseModelAdmin):
+    list_display = ("title", "is_active")
+    list_editable = ("is_active",)
     prepopulated_fields = {"slug": ("title",)}
