@@ -23,6 +23,6 @@ def project_details(request: HttpRequest, slug: str) -> HttpResponse:
     """
     View for project details
     """
-    project = get_object_or_404(Project, slug=slug)
+    project = get_object_or_404(Project, slug=slug, is_active=True)
     context = {"project": project}
     return render(request, "portfolio-details.html", context)
